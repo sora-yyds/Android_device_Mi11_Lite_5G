@@ -18,7 +18,7 @@
 
 LOCAL_PATH := device/xiaomi/renoir
 
-# A/B
+# A/B OTA partitions
 AB_OTA_PARTITIONS += \
     boot \
     system \
@@ -33,17 +33,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.lahaina
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    android.hardware.boot@1.0-service \
     bootctrl.lahaina \
-    libgptutils \
-    libz \
-    libcutils
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.lahaina.recovery
 
+# OTA related packages
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
